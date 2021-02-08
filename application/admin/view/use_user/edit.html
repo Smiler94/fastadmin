@@ -1,0 +1,112 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Username')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-UserName" data-rule="required" class="form-control" name="row[UserName]" type="text" value="{$row.UserName|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[Type]', $typeData, $row['Type'], ['class'=>'form-control', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Nickname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-NickName" data-rule="required" class="form-control" name="row[NickName]" type="text" value="{$row.NickName|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Icon')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Icon" data-rule="required" class="form-control" name="row[Icon]" type="text" value="{$row.Icon|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Mobile" data-rule="required" class="form-control" name="row[Mobile]" type="text" value="{$row.Mobile|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Password')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Password" data-rule="required" class="form-control" name="row[Password]" type="text" value="{$row.Password|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Realname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-RealName" data-rule="required" class="form-control" name="row[RealName]" type="text" value="{$row.RealName|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Idcard')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-IdCard" data-rule="required" class="form-control" name="row[IdCard]" type="text" value="{$row.IdCard|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="control-label col-xs-12 col-sm-2">{:__('Sex')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[Sex]', $sexData, null, ['class'=>'form-control', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Referrerid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ReferrerId" data-rule="required" class="form-control" name="row[ReferrerId]" type="number" value="{$row.ReferrerId|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Referrertime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ReferrerTime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[ReferrerTime]" type="text" value="{$row.ReferrerTime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[Status]', $statusData, null, ['class'=>'form-control', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Addtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-AddTime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[AddTime]" type="text" value="{$row.AddTime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Fullreferrerid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-FullReferrerId" data-rule="required" class="form-control" name="row[FullReferrerId]" type="number" value="{$row.FullReferrerId|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Agentid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-AgentId" data-rule="required" class="form-control" name="row[AgentId]" type="number" value="{$row.AgentId|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Fullagentid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-FullAgentId" data-rule="required" class="form-control" name="row[FullAgentId]" type="text" value="{$row.FullAgentId|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Balance')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Balance" data-rule="required" class="form-control" step="0.001" name="row[Balance]" type="number" value="{$row.Balance|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

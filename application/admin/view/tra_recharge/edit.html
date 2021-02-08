@@ -1,0 +1,88 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Rechargeno')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-RechargeNo" data-rule="required" class="form-control" name="row[RechargeNo]" type="text" value="{$row.RechargeNo|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Proid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ProId" data-rule="required" class="form-control" name="row[ProId]" type="number" value="{$row.ProId|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Price')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Price" data-rule="required" class="form-control" step="0.001" name="row[Price]" type="number" value="{$row.Price|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Qty')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Qty" data-rule="required" class="form-control" name="row[Qty]" type="number" value="{$row.Qty|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Total" data-rule="required" class="form-control" step="0.001" name="row[Total]" type="number" value="{$row.Total|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Totalsycee')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-TotalSycee" data-rule="required" class="form-control" step="0.001" name="row[TotalSycee]" type="number" value="{$row.TotalSycee|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Givesycee')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-GiveSycee" data-rule="required" class="form-control" step="0.001" name="row[GiveSycee]" type="number" value="{$row.GiveSycee|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Freezesycee')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-FreezeSycee" data-rule="required" class="form-control" step="0.001" name="row[FreezeSycee]" type="number" value="{$row.FreezeSycee|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Userid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-UserId" data-rule="required" class="form-control" name="row[UserId]" type="number" value="{$row.UserId|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Status" class="form-control" name="row[Status]" type="number" value="{$row.Status|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Addtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-AddTime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[AddTime]" type="text" value="{$row.AddTime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Lasttime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-LastTime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[LastTime]" type="text" value="{$row.LastTime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-Remark" data-rule="required" class="form-control" name="row[Remark]" type="text" value="{$row.Remark|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

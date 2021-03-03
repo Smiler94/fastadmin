@@ -27,7 +27,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'ProId', title: __('Proid')},
                         {field: 'ProName', title: __('Proname'), operate: 'LIKE'},
-                        {field: 'Icon', title: __('Icon'), operate: 'LIKE', formatter: Table.api.formatter.icon},
+                        {field: 'Icon', title: __('Icon'), operate: 'LIKE', formatter: Table.api.formatter.image},
                         {field: 'TotalSycee', title: __('Totalsycee'), operate:'BETWEEN'},
                         {field: 'GiveSycee', title: __('Givesycee'), operate:'BETWEEN'},
                         {field: 'Price', title: __('Price'), operate:'BETWEEN'},
@@ -35,7 +35,6 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'Status', title: __('Status')},
                         {field: 'AddTime', title: __('Addtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false},
                         {field: 'Remark', title: __('Remark'), operate: 'LIKE'},
-                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]
             });

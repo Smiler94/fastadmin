@@ -1,2 +1,8 @@
 .idea/
 .git/
+application/admin/controller/example
+application/admin/view/example
+public/assets/js/backend/example
+runtime/
+addons/example
+public/uploads/

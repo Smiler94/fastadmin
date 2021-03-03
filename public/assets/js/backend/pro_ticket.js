@@ -27,7 +27,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'TicketId', title: __('Ticketid')},
                         {field: 'TicketName', title: __('Ticketname'), operate: 'LIKE'},
-                        {field: 'Icon', title: __('Icon'), operate: 'LIKE', formatter: Table.api.formatter.icon},
+                        {field: 'Icon', title: __('Icon'), operate: 'LIKE', formatter: Table.api.formatter.image},
                         {field: 'Total', title: __('Total'), operate:'BETWEEN'},
                         {field: 'Price', title: __('Price'), operate:'BETWEEN'},
                         {field: 'Indexs', title: __('Indexs')},

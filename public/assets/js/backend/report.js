@@ -1,12 +1,12 @@
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
 
     var Controller = {
-        index: function () {
+        teamprofitandloss: function () {
             // 初始化表格参数配置
             Table.api.init({
                 extend: {
-                    index_url: 'cof_issue/index' + location.search,
-                    table: 'cof_issue',
+                    index_url: 'report/teamProfitAndLoss' + location.search,
+                    table: 'team_profit_and_loss',
                 }
             });
 
@@ -15,26 +15,22 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             // 初始化表格
             table.bootstrapTable({
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
-                pk: 'IssueId',
-                sortName: 'AddTime',
+                pk: 'Id',
+                sortName: 'Id',
                 columns: [
                     [
-                        {field: 'IssueId', title: __('Issueid')},
-                        {field: 'GameId', title: __('Gameid')},
-                        {field: 'OpenCode', title: __('Opencode'), operate: 'LIKE'},
-                        {field: 'AddTime', title: __('Addtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false}
+                        {field: 'Id', title: __('Id'), operate: false},
+                        {field: 'Username', title: __('Username'), operate: 'LIKE'},
+                        {field: 'BetTotal', title: __('BetTotal'), operate: false},
+                        {field: 'BonusTotal', title: __('BonusTotal'), operate: false},
+                        {field: 'RebateTotal', title: __('RebateTotal'), operate: false},
+                        {field: 'ProfitTotal', title: __('ProfitTotal'), operate: false},
                     ]
                 ]
             });
 
             // 为表格绑定事件
             Table.api.bindevent(table);
-        },
-        add: function () {
-            Controller.api.bindevent();
-        },
-        edit: function () {
-            Controller.api.bindevent();
         },
         api: {
             bindevent: function () {

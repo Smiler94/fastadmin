@@ -24,11 +24,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 sortName: 'OrderId',
                 columns: [
                     [
-                        {field: 'OrderId', title: __('Orderid')},
-                        {field: 'User.UserName', title: __('Userid')},
+                        {field: 'OrderId', title: __('Orderid'), operate: false},
+                        {field: 'useUser.UserName', title: __('Userid'), operate: 'LIKE'},
                         {field: 'OrderNo', title: __('Orderno'), operate: 'LIKE'},
                         {field: 'GameName', title: __('Gameid')},
-                        {field: 'GameTypeName', title: __('Gametype')},
+                        {field: 'GameTypeName', title: __('Gametype'),  operate: false},
                         {field: 'IssueId', title: __('Issueid')},
                         {field: 'BetType', title: __('Bettype')},
                         {field: 'BetNos', title: __('Betnos'), operate: 'LIKE'},
@@ -37,7 +37,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'Bonus', title: __('Bonus'), operate:'BETWEEN'},
                         {field: 'StatusName', title: __('Status')},
                         {field: 'AddTime', title: __('Addtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false},
-                        {field: 'LastTime', title: __('Lasttime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false},
+                        {field: 'LastTime', title: __('Lasttime'), operate: false, addclass:'datetimerange', autocomplete:false},
                     ]
                 ]
             });

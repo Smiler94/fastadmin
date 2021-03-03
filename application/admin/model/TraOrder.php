@@ -26,7 +26,7 @@ class TraOrder extends Model
         'GameName',
         'StatusName',
         'GameTypeName',
-        'User'
+        'useUser'
     ];
 
     public function getGameNameAttr($v, $data)
@@ -38,18 +38,21 @@ class TraOrder extends Model
     {
         return Order::$status[$data['Status']];
     }
-    
+
     public function getGameTypeNameAttr($v, $data)
     {
         return Game::$type[$data['GameType']];
     }
 
-    public function getUserAttr($v, $data)
+    public function getUseUserAttr($v, $data)
     {
-        return UseUser::find($data['UserId']);
+        return $data['use_user'];
     }
 
-
+    public function useUser()
+    {
+        return $this->belongsTo('use_user', 'UserId', 'UserId')->setEagerlyType(0);
+    }
 
 
 }

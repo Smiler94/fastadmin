@@ -37,5 +37,21 @@ class TraOrder extends Backend
      * 需要将application/admin/library/traits/Backend.php中对应的方法复制到当前控制器,然后进行修改
      */
     
+    public function index()
+    {
+        $this->relationSearch = true;
+        $this->searchFields = "use_user.UserName,UserId";
+        if ($this->request->isAjax()) {
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+            $list = $this->model
+                ->with("useUser")
+                ->where($where)
+                ->order($sort, $order)
+                ->paginate($limit);
+            $result = array("total" => $list->total(), "rows" => $list->items());
 
+            return json($result);
+        }
+        return $this->view->fetch();
+    }
 }

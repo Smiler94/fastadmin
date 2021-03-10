@@ -8,9 +8,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     index_url: 'use_user/index' + location.search,
                     add_url: 'use_user/add',
                     edit_url: 'use_user/edit',
-                    del_url: 'use_user/del',
-                    multi_url: 'use_user/multi',
-                    import_url: 'use_user/import',
+                    balance_url: 'use_user/balance',
                     table: 'use_user',
                 }
             });
@@ -24,26 +22,35 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 sortName: 'UserId',
                 columns: [
                     [
-                        {checkbox: true},
                         {field: 'UserId', title: __('Userid')},
                         {field: 'UserName', title: __('Username'), operate: 'LIKE'},
                         {field: 'Type', title: __('Type')},
                         {field: 'NickName', title: __('Nickname'), operate: 'LIKE'},
-                        {field: 'Icon', title: __('Icon'), operate: 'LIKE', formatter: Table.api.formatter.icon},
                         {field: 'Mobile', title: __('Mobile'), operate: 'LIKE'},
-                        {field: 'Password', title: __('Password'), operate: 'LIKE'},
-                        {field: 'RealName', title: __('Realname'), operate: 'LIKE'},
-                        {field: 'IdCard', title: __('Idcard'), operate: 'LIKE'},
-                        {field: 'Sex', title: __('Sex')},
-                        {field: 'ReferrerId', title: __('Referrerid')},
-                        {field: 'ReferrerTime', title: __('Referrertime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false},
+                        {field: 'RealName', title: __('Realname'), operate: false},
+                        {field: 'IdCard', title: __('Idcard'), operate: false},
+                        {field: 'Sex', title: __('Sex'), operate: false},
+                        {field: 'ReferrerTime', title: __('Referrertime'), operate:false, addclass:'datetimerange', autocomplete:false},
                         {field: 'Status', title: __('Status')},
                         {field: 'AddTime', title: __('Addtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false},
-                        {field: 'FullReferrerId', title: __('Fullreferrerid')},
-                        {field: 'AgentId', title: __('Agentid')},
+                        {field: 'ReferrerId', title: __('Referrerid'), operate: false},
+                        {field: 'FullReferrerId', title: __('Fullreferrerid'), operate: false},
+                        {field: 'AgentId', title: __('Agentid'), operate: false},
                         {field: 'FullAgentId', title: __('Fullagentid'), operate: 'LIKE'},
-                        {field: 'Balance', title: __('Balance'), operate:'BETWEEN'},
-                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
+                        {field: 'Balance', title: __('Balance'), operate: false},
+                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate,
+                            buttons: [
+                                {
+                                    name: 'detail',
+                                    title: __('直充'),
+                                    classname: 'btn btn-xs btn-primary btn-dialog',
+                                    icon: 'fa fa-yen',
+                                    url: 'use_user/balance',
+                                    callback: function (data) {
+                                        Layer.alert("接收到回传数据：" + JSON.stringify(data), {title: "回传数据"});
+                                    }
+                                }
+                            ]}
                     ]
                 ]
             });
@@ -55,6 +62,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             Controller.api.bindevent();
         },
         edit: function () {
+            Controller.api.bindevent();
+        },
+        balance: function () {
             Controller.api.bindevent();
         },
         api: {

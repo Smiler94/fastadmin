@@ -27,18 +27,12 @@ class TraRecharge extends Model
     // 追加属性
     protected $append = [
         'StatusName',
-        'Product',
         'User'
     ];
 
     public function getStatusNameAttr($v, $data)
     {
         return Recharge::$status[$data['Status']];
-    }
-
-    public function getProductAttr($v, $data)
-    {
-        return ProProduct::find($data['ProId']);
     }
 
     public function getUserAttr($v, $data)

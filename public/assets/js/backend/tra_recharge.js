@@ -27,7 +27,6 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'RechargeId', title: __('Rechargeid')},
                         {field: 'RechargeNo', title: __('Rechargeno'), operate: 'LIKE'},
-                        {field: 'Product.ProName', title: __('Proid')},
                         {field: 'Total', title: __('Total'), operate:'BETWEEN'},
                         {field: 'TotalSycee', title: __('Totalsycee'), operate:'BETWEEN'},
                         {field: 'User.UserName', title: __('Userid')},

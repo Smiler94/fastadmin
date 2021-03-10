@@ -4,6 +4,9 @@ namespace app\admin\controller;
 
 use app\common\constant\User;
 use app\common\controller\Backend;
+use think\Db;
+use think\Exception;
+use think\exception\PDOException;
 
 /**
  * 
@@ -42,7 +45,48 @@ class UseUser extends Backend
 
     public function all()
     {
-        return json($this->model->column('UserId,UserName'));
+        return json($this->model->column('*'));
     }
 
+    public function types()
+    {
+        return json(User::$type);
+    }
+
+    public function balance($ids = null)
+    {
+        if ($this->request->isPost()) {
+            $balance = $this->request->post("Balance");
+            $id = $this->request->post('id');
+            $user = $this->model->get($id);
+            if ($balance > 0 && !is_null($user)) {
+                Db::startTrans();
+                try {
+                    $user->setInc('Balance', $balance);
+                    $wealth = new \app\admin\model\TraWealth([
+                        'UserId' => $id,
+                        'Total' => $balance,
+                        'Balance' => $user->Balance + $balance,
+                        'SourceType' => 7,
+                        'SourceId' => 0,
+                        'Remark' => '直充',
+                        'AddTime' => date('Y-m-d H:i:s')
+                    ]);
+                    $wealth->save();
+                    Db::commit();
+                } catch (PDOException $e) {
+                    Db::rollback();
+                    $this->error($e->getMessage());
+                }catch (Exception $e) {
+                    Db::rollback();
+                    $this->error($e->getMessage());
+                }
+                $this->success();
+            } else {
+                $this->error(__('Parameter %s can not be empty', ''));
+            }
+        }
+        $this->view->assign('id', $ids);
+        return $this->view->fetch('add_balance');
+    }
 }

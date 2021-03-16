@@ -5,12 +5,7 @@
             <input id="c-IssueId" data-rule="required" class="form-control" name="row[IssueId]" type="text" value="{$row.IssueId}">
         </div>
     </div>
-    <div class="form-group">
-        <label  class="control-label col-xs-12 col-sm-2">{:__('Gameid')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            {:build_select('row[GameId]', $gameData, $row['GameId'], ['class'=>'form-control', 'required'=>''])}
-        </div>
-    </div>
+    <input id="c-GameId" data-rule="required" class="form-control" name="row[GameId]" type="hidden" value="{$row.GameId}">
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Opencode')}:</label>
         <div class="col-xs-12 col-sm-8">
